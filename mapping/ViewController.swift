@@ -119,7 +119,7 @@ extension ViewController: MKMapViewDelegate{
         
         let GOOGLE_API_KEY = "AIzaSyAzw_u47I2qXPZvMVN-1cKD-tHuEHSRm8g"
         
-        let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&radius=500&type=\(typeKey)&name\(placeKey)=&key=\(GOOGLE_API_KEY)"
+        let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&radius=500&type=\(placeKey)&name=&key=\(GOOGLE_API_KEY)"
         
         let session = NSURLSession.sharedSession()
         

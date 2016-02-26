@@ -13,9 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
 
     var placesArray:[place] = []
     
-    var typeKey = String() // variable for the type the user searches for
-    
-    var placeKey = String() // variable for what the name of the place the user searches for
+    var placeKey = String() // variable for the type of the place the user searches for
     
     let locationManager = CLLocationManager()
     
@@ -47,7 +45,6 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         doApiStuff()
     }
 
-    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // this function gets the users location and makes the make zoom into their location
@@ -108,6 +105,23 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
 }
 
 extension ViewController: MKMapViewDelegate{
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myspot")
+        
+        annotationView.animatesDrop = true
+        
+        annotationView.canShowCallout = true
+        
+        annotationView.pinTintColor = UIColor.blueColor()
+        
+        let btn = UIButton(type: .DetailDisclosure)
+        
+        annotationView.rightCalloutAccessoryView = btn
+        
+        return annotationView
+    }
 
     func doApiStuff(){
         //This function makes the requests to the google places api

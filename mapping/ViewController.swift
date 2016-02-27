@@ -96,6 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         self.locationManager.startUpdatingLocation() //gets location
         
         self.map.showsUserLocation = true
+        self.map.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

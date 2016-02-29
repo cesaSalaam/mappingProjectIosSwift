@@ -124,6 +124,21 @@ extension ViewController: MKMapViewDelegate{
         return annotationView
     }
 
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        view.annotation as! place
+        let anno = String(view.annotation!.title!!)
+        var placeID = String()
+        for item in placesArray{
+            if item.title == anno{
+                placeID = item.placeID
+                break
+            }
+        }
+        NSUserDefaults.standardUserDefaults().setObject(placeID, forKey: "tappedAnnoID")
+        
+        self.performSegueWithIdentifier("detailViewController", sender: UIControl())
+        
+    }
     func doApiStuff(){
         //This function makes the requests to the google places api
         //This function addds the annotations the map.
@@ -159,8 +174,13 @@ extension ViewController: MKMapViewDelegate{
                     for parsedItem in arrayOfParsingTools{
                         let newPlace = place(coordinate: parsedItem.locationCoords, name: parsedItem.name, vicinity: parsedItem.vicinity, placeID: parsedItem.placeID)
                         self.placesArray.append(newPlace)
-                        
                     }
+                    for i in 0...self.placesArray.count-1{
+                    print(i)
+                    print(self.placesArray[i].title)
+                    print("PlaceID: \(self.placesArray[i].placeID)")
+                    }
+                    print("-----------------------")
                     self.map.addAnnotations(self.placesArray)
                     dispatch_async(dispatch_get_main_queue()){
                         self.map.setRegion(region, animated: true)

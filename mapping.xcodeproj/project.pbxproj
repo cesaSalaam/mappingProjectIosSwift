@@ -19,6 +19,7 @@
 		D9E2DE851C7FCA3A00D53D48 /* placeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E2DE841C7FCA3A00D53D48 /* placeClass.swift */; };
 		D9E2DE8B1C7FCE8400D53D48 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E2DE8A1C7FCE8400D53D48 /* MapKit.framework */; };
 		D9E2DE8D1C7FCEA300D53D48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E2DE8C1C7FCEA300D53D48 /* CoreLocation.framework */; };
+		D9E2DEA21C82703F00D53D48 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E2DEA11C82703F00D53D48 /* detailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D9E2DE841C7FCA3A00D53D48 /* placeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeClass.swift; sourceTree = "<group>"; };
 		D9E2DE8A1C7FCE8400D53D48 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D9E2DE8C1C7FCEA300D53D48 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D9E2DEA11C82703F00D53D48 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				D9E2DE511C7FC1DB00D53D48 /* AppDelegate.swift */,
+				D9E2DEA11C82703F00D53D48 /* detailViewController.swift */,
 				D9E2DE531C7FC1DB00D53D48 /* ViewController.swift */,
 				D9E2DE841C7FCA3A00D53D48 /* placeClass.swift */,
 				D9E2DE821C7FC9C900D53D48 /* jsonParsingClass.swift */,
@@ -289,6 +292,7 @@
 				D9E2DE541C7FC1DB00D53D48 /* ViewController.swift in Sources */,
 				D9E2DE851C7FCA3A00D53D48 /* placeClass.swift in Sources */,
 				D9E2DE521C7FC1DB00D53D48 /* AppDelegate.swift in Sources */,
+				D9E2DEA21C82703F00D53D48 /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

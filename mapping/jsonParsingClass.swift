@@ -28,3 +28,12 @@ class parseJson {
         return locationCoords
     }
 }
+
+class parseSecJason{
+    var address = String()
+    var name = String()
+    var hoursOfOpp = String()
+    var icon = String()
+
+
+}

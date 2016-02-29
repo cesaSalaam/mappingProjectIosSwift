@@ -27,3 +27,4 @@ class place: NSObject, MKAnnotation {
     }
     
 }
+

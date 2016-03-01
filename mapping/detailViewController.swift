@@ -9,32 +9,22 @@
 import UIKit
 import MapKit
 class detailViewController: UIViewController, UITableViewDelegate{
-    
-    
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var image: UIImageView!
     @IBOutlet var label: UILabel!
-    
-    var newitem = parseSecJson()
-    
-    let id = NSUserDefaults.standardUserDefaults().objectForKey("tappedAnnoID") as! String// retrieving the place id of the annotation that was tapped.
-    
-    override func viewDidLoad() {
+    var testing: place?
+    override func viewWillAppear(animated: Bool) {
         doSecondApiStuff()
     }
-    
     func doSecondApiStuff(){
         // This function makes the second API call with the placeId of the annotation tapped.
-        
         let GOOGLE_API_KEY = "AIzaSyAzw_u47I2qXPZvMVN-1cKD-tHuEHSRm8g"
-        print(id)
-        let baseURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(id)&key=\(GOOGLE_API_KEY)"
+        let baseURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(self.testing!.placeID)&key=\(GOOGLE_API_KEY)"
         
         let session = NSURLSession.sharedSession()
         
         let request = NSMutableURLRequest(URL: (NSURL(string: baseURL))!)
         
-
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
             
             if error != nil{
@@ -47,8 +37,7 @@ class detailViewController: UIViewController, UITableViewDelegate{
                 if let items = json["result"] as? [String: AnyObject]{
                     print(items)
                     let placeItem = parseSecJson(dict: items)
-                    self.newitem = placeItem
-                    self.addressLabel.text = " \(self.newitem.address)"
+                    self.addressLabel.text = "  \(placeItem.address)"
                 }
             }catch{
                 print("error with serializing JSON: \(error)")

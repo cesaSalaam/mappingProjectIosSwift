@@ -125,6 +125,9 @@ extension ViewController: MKMapViewDelegate{
     }
 
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        // This function performs a segue to the detail view page when the disclosure button is tapped.
+        
         view.annotation as! place
         let anno = String(view.annotation!.title!!)
         var placeID = String()

@@ -9,6 +9,7 @@
 import UIKit
 
 class parseJson {
+    // this class parses through the first set of results from the first api call
     var name = String()
     var locationCoords = [Double]()
     var vicinity = String()
@@ -30,21 +31,33 @@ class parseJson {
 }
 
 class parseSecJson{
+    
+    // this class parses through the first set of results from the second api call
     var address = String()
     var name = String()
     var hoursOfOpp = String()
     var icon = String()
     var rating = String()
-    var numForHash = Int()
-    var uid = String()
-    
+    var height = String()
+    var photoReference = String()
+
     init(dict: [String: AnyObject]){
-        self.address = dict["formatted_address"] as! String!
+        self.address = dict["vicinity"] as! String!
         self.name = dict["name"] as! String!
-        //self.rating = dict["rating"] as! String!
         self.icon = dict["icon"] as! String!
+        //getPhoto(dict["photos"] as! [String: AnyObject])
+        // print(photoReference)
+        //print(height)
     }
+    
     init(){}
+    
+    func getPhoto(photos: [String: AnyObject]){
+            self.height = photos["height"] as! String
+            self.photoReference = photos["photo_reference"] as! String
+        // create function that makes API Call
+    }
+    
 }
 
 

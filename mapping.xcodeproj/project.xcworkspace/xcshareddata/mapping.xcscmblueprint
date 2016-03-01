@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6BB77C60B0FB45F453D208E194EA0A0AC463FB37",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6BB77C60B0FB45F453D208E194EA0A0AC463FB37" : 0,
+    "FF1A9871A3830E3EE7B335498FEF077275B20899" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6AD1B5DD-B6EC-4439-A8E8-0E9F9EA73619",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6BB77C60B0FB45F453D208E194EA0A0AC463FB37" : "mapping\/",
+    "FF1A9871A3830E3EE7B335498FEF077275B20899" : "weather%20forecast\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "mapping",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "mapping.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cesaSalaam\/mappingProjectIosSwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6BB77C60B0FB45F453D208E194EA0A0AC463FB37"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cesaSalaam\/weather-forecast.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FF1A9871A3830E3EE7B335498FEF077275B20899"
+    }
+  ]
+}

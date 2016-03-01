@@ -29,11 +29,22 @@ class parseJson {
     }
 }
 
-class parseSecJason{
+class parseSecJson{
     var address = String()
     var name = String()
     var hoursOfOpp = String()
     var icon = String()
-
-
+    var rating = String()
+    var numForHash = Int()
+    var uid = String()
+    
+    init(dict: [String: AnyObject]){
+        self.address = dict["formatted_address"] as! String!
+        self.name = dict["name"] as! String!
+        //self.rating = dict["rating"] as! String!
+        self.icon = dict["icon"] as! String!
+    }
+    init(){}
 }
+
+

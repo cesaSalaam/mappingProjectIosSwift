@@ -175,12 +175,6 @@ extension ViewController: MKMapViewDelegate{
                         let newPlace = place(coordinate: parsedItem.locationCoords, name: parsedItem.name, vicinity: parsedItem.vicinity, placeID: parsedItem.placeID)
                         self.placesArray.append(newPlace)
                     }
-                    for i in 0...self.placesArray.count-1{
-                    print(i)
-                    print(self.placesArray[i].title)
-                    print("PlaceID: \(self.placesArray[i].placeID)")
-                    }
-                    print("-----------------------")
                     self.map.addAnnotations(self.placesArray)
                     dispatch_async(dispatch_get_main_queue()){
                         self.map.setRegion(region, animated: true)

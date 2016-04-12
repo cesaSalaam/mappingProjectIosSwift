@@ -438,7 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = mapping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cesasalaam.mapping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cesasalaam.mapping.cesa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -449,7 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = mapping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cesasalaam.mapping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cesasalaam.mapping.cesa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -521,6 +521,7 @@
 				D9E2DE7B1C7FC1DC00D53D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9E2DE7C1C7FC1DC00D53D48 /* Build configuration list for PBXNativeTarget "mappingTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +530,7 @@
 				D9E2DE7E1C7FC1DC00D53D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9E2DE7F1C7FC1DC00D53D48 /* Build configuration list for PBXNativeTarget "mappingUITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +539,7 @@
 				D9E2DE811C7FC1DC00D53D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

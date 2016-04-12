@@ -31,7 +31,6 @@ class parseJson {
 }
 
 class parseSecJson{
-    
     // this class parses through the first set of results from the second api call
     var address = String()
     var name = String()
@@ -39,25 +38,16 @@ class parseSecJson{
     var icon = String()
     var rating = String()
     var height = String()
-    var photoReference = String()
+    var photoReference:String?
+    var photoAsData:NSData?
 
     init(dict: [String: AnyObject]){
         self.address = dict["vicinity"] as! String!
         self.name = dict["name"] as! String!
         self.icon = dict["icon"] as! String!
-        //getPhoto(dict["photos"] as! [String: AnyObject])
-        // print(photoReference)
-        //print(height)
     }
     
     init(){}
-    
-    func getPhoto(photos: [String: AnyObject]){
-            self.height = photos["height"] as! String
-            self.photoReference = photos["photo_reference"] as! String
-        // create function that makes API Call
-    }
-    
 }
 
 

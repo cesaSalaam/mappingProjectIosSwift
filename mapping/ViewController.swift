@@ -9,14 +9,23 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
+class ViewController: UIViewController, CLLocationManagerDelegate{
+    //MARK: Variables outlets and actions
+    
     var placesArray:[place] = []
+    
     var placeKey = String() // variable for the type of the place the user searches for
+    
     let locationManager = CLLocationManager()
+    
     var lng = Double() // variable to hold the longitude
-    var lat = Double() // variable to holf the latitude
+    
+    var lat = Double() // variable to hold the latitude
+    
     @IBOutlet var map: MKMapView!
+    
     @IBOutlet weak var placeTextfield: UITextField!
+    
     @IBAction func submit(sender: AnyObject) {
         //action for when the submit button is clicked
         // this function runs checks if valid input is in the text fields and then runs the search
@@ -31,6 +40,47 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         }
         doApiStuff()
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //resigns the key boards when the user touches the screen
+        placeTextfield.resignFirstResponder()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        locationManagerStuff()
+        
+        self.map.showsUserLocation = true
+        self.map.delegate = self
+    }
+    
+    func locationManagerStuff(){
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization() // asks users for permission to use their location
+        self.locationManager.startUpdatingLocation() //gets location
+    }
+}
+
+//MARK: Mapview, location, dataPassing, API call
+
+extension ViewController: MKMapViewDelegate{
+    //MARK: Mapview
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myspot")
+        annotationView.animatesDrop = true
+        annotationView.canShowCallout = true
+        annotationView.pinTintColor = UIColor.blueColor()
+        let btn = UIButton(type: .DetailDisclosure)
+        annotationView.rightCalloutAccessoryView = btn
+        return annotationView
+    }
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // This function performs a segue to the detail view page when the disclosure button is tapped.
+        let annotation = view.annotation as! place
+        self.performSegueWithIdentifier("detailViewController", sender: annotation)
+    }
+    //MARK: Location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // this function gets the users location and makes the make zoom into their location
         // this function creates an array of locations and uses the last one for the location of the user
@@ -46,52 +96,14 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         // prints an error is the location cant be gotten
         print("error: \(error.localizedDescription)")
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        //resigns keyboard when user tapps the return key.
-        placeTextfield.resignFirstResponder()
-        return true
-    }
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        //resigns the key boards when the user touches the screen
-        placeTextfield.resignFirstResponder()
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization() // asks users for permission to use their location
-        self.locationManager.startUpdatingLocation() //gets location
-        self.map.showsUserLocation = true
-        self.map.delegate = self
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-}
-extension ViewController: MKMapViewDelegate{
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myspot")
-        annotationView.animatesDrop = true
-        annotationView.canShowCallout = true
-        annotationView.pinTintColor = UIColor.blueColor()
-        let btn = UIButton(type: .DetailDisclosure)
-        annotationView.rightCalloutAccessoryView = btn
-        return annotationView
-    }
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        // This function performs a segue to the detail view page when the disclosure button is tapped.
-        let annotation = view.annotation as! place
-        self.performSegueWithIdentifier("detailViewController", sender: annotation)
-    }
+    //MARK: Api Function
     func doApiStuff(){
         //This function makes the requests to the google places api
         //This function addds the annotations the map.
         let center = CLLocationCoordinate2DMake(lat, lng)
         let region = MKCoordinateRegionMake(center, MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         let GOOGLE_API_KEY = "AIzaSyAzw_u47I2qXPZvMVN-1cKD-tHuEHSRm8g"
-        let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&radius=500&type=\(placeKey)&name=&key=\(GOOGLE_API_KEY)"
+        let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&radius=300&type=\(placeKey)&name=&key=\(GOOGLE_API_KEY)"
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: baseURL)!)
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
@@ -124,7 +136,9 @@ extension ViewController: MKMapViewDelegate{
         }
         task.resume()
     }
+    //MARK: Sending data
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Passes data to detailViewController
         if segue.identifier == "detailViewController"{
             let destinationViewController = segue.destinationViewController as! detailViewController
             destinationViewController.testing = sender as? place

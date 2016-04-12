@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EhJ-Sm-YHQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EhJ-Sm-YHQ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -93,18 +93,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qmh-BL-6UK">
-                                <rect key="frame" x="-4" y="64" width="383" height="165"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="z9E-97-SCt"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcd-N1-VjC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.88235294119999996" green="0.18703910460000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHk-n5-N33">
+                                <rect key="frame" x="0.0" y="157" width="375" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Address:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIG-Lx-fLV">
-                                <rect key="frame" x="-8" y="311" width="391" height="45"/>
-                                <color key="backgroundColor" red="0.28199926619999999" green="0.59489182689999998" blue="0.55296200880000002" alpha="0.48160021549999998" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="jXe-OX-Hta"/>
-                                    <constraint firstAttribute="height" constant="45" id="sS5-C0-iMB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.1054760985" blue="0.2465473215" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,13 +122,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qmh-BL-6UK" firstAttribute="top" secondItem="e3P-8X-PCj" secondAttribute="bottom" id="Ctp-Zq-76C"/>
+                            <constraint firstItem="fcd-N1-VjC" firstAttribute="top" secondItem="e3P-8X-PCj" secondAttribute="bottom" id="FOa-IM-1eG"/>
                             <constraint firstItem="wIG-Lx-fLV" firstAttribute="leading" secondItem="GEE-EW-vV3" secondAttribute="leadingMargin" constant="-20" id="Hnt-o4-aUs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wIG-Lx-fLV" secondAttribute="trailing" constant="-24" id="UDa-7U-XUB"/>
-                            <constraint firstItem="wIG-Lx-fLV" firstAttribute="top" secondItem="Qmh-BL-6UK" secondAttribute="bottom" constant="82" id="Y2R-Zr-nvw"/>
-                            <constraint firstItem="Qmh-BL-6UK" firstAttribute="leading" secondItem="GEE-EW-vV3" secondAttribute="leadingMargin" constant="-20" id="d0u-BB-ieX"/>
-                            <constraint firstItem="wIG-Lx-fLV" firstAttribute="leading" secondItem="GEE-EW-vV3" secondAttribute="leadingMargin" constant="-24" id="gje-hw-LBy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Qmh-BL-6UK" secondAttribute="trailing" constant="-20" id="pzq-Fa-snn"/>
+                            <constraint firstItem="7Cb-Fs-wim" firstAttribute="top" secondItem="dHk-n5-N33" secondAttribute="bottom" constant="465" id="Qkz-lv-XiQ"/>
+                            <constraint firstItem="7Cb-Fs-wim" firstAttribute="top" secondItem="fcd-N1-VjC" secondAttribute="bottom" constant="555" id="UQ8-EN-l2c"/>
+                            <constraint firstItem="fcd-N1-VjC" firstAttribute="leading" secondItem="wIG-Lx-fLV" secondAttribute="leading" id="c4p-fe-vSB"/>
+                            <constraint firstItem="dHk-n5-N33" firstAttribute="leading" secondItem="wIG-Lx-fLV" secondAttribute="leading" id="dGk-wT-uMe"/>
+                            <constraint firstItem="fcd-N1-VjC" firstAttribute="leading" secondItem="GEE-EW-vV3" secondAttribute="leading" id="egJ-gJ-HeT"/>
+                            <constraint firstItem="wIG-Lx-fLV" firstAttribute="top" secondItem="e3P-8X-PCj" secondAttribute="bottom" constant="40" id="fnH-dY-ZtV"/>
+                            <constraint firstItem="dHk-n5-N33" firstAttribute="top" secondItem="wIG-Lx-fLV" secondAttribute="bottom" constant="8" symbolic="YES" id="hty-pg-1W8"/>
+                            <constraint firstAttribute="trailing" secondItem="fcd-N1-VjC" secondAttribute="trailing" id="nhT-aS-k3K"/>
+                            <constraint firstItem="fcd-N1-VjC" firstAttribute="trailing" secondItem="wIG-Lx-fLV" secondAttribute="trailing" id="q65-Hf-WgH"/>
+                            <constraint firstItem="dHk-n5-N33" firstAttribute="trailing" secondItem="wIG-Lx-fLV" secondAttribute="trailing" id="ule-lF-sYM"/>
+                            <constraint firstItem="7Cb-Fs-wim" firstAttribute="top" secondItem="wIG-Lx-fLV" secondAttribute="bottom" constant="518" id="vaJ-a6-hdN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -135,7 +145,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addressLabel" destination="wIG-Lx-fLV" id="w7G-c5-jfS"/>
-                        <outlet property="image" destination="Qmh-BL-6UK" id="MZc-4R-Hh2"/>
+                        <outlet property="label" destination="fcd-N1-VjC" id="PIm-DU-bwy"/>
+                        <outlet property="ratingLabel" destination="dHk-n5-N33" id="68J-Ct-icH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0D-Jk-xbh" userLabel="First Responder" sceneMemberID="firstResponder"/>

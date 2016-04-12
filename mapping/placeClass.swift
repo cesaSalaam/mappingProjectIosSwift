@@ -15,6 +15,8 @@ class place: NSObject, MKAnnotation {
     var placeID = String()
     var title:String?
     var subtitle:String?
+    var rating:String?
+    
     var coordinate:CLLocationCoordinate2D
     
     init(coordinate: [Double], name: String, vicinity: String, placeID: String){

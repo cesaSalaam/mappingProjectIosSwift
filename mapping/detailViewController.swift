@@ -2,7 +2,7 @@
 //  detailViewController.swift
 //  mapping
 //
-//  Created by Lifoma Salaam on 2/27/16.
+//  Created by Cesa Salaam on 2/27/16.
 //  Copyright © 2016 CesaSalaam. All rights reserved.
 //
 
@@ -38,6 +38,7 @@ class detailViewController: UIViewController, UITableViewDelegate{
             do {
                 print("in do")
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                print(json)
                 if let items = json["result"] as? [String: AnyObject]{
                     let placeItem = parseSecJson(dict: items)
                     self.testing?.rating = placeItem.rating

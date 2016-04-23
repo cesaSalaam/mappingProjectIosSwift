@@ -2,7 +2,7 @@
 //  jsonParsingClass.swift
 //  mapping
 //
-//  Created by Lifoma Salaam on 2/25/16.
+//  Created by Cesa Salaam on 2/25/16.
 //  Copyright © 2016 CesaSalaam. All rights reserved.
 //
 
@@ -45,6 +45,7 @@ class parseSecJson{
         self.address = dict["vicinity"] as! String!
         self.name = dict["name"] as! String!
         self.icon = dict["icon"] as! String!
+        self.rating = dict["rating"] as! String!
     }
     
     init(){}

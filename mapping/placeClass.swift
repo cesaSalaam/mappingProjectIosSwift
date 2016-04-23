@@ -2,7 +2,7 @@
 //  placeClass.swift
 //  mapping
 //
-//  Created by Lifoma Salaam on 2/25/16.
+//  Created by Cesa Salaam on 2/25/16.
 //  Copyright © 2016 CesaSalaam. All rights reserved.
 //
 

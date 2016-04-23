@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  mapping
 //
-//  Created by Lifoma Salaam on 2/25/16.
+//  Created by Cesa Salaam on 2/25/16.
 //  Copyright © 2016 CesaSalaam. All rights reserved.
 //
 
@@ -98,12 +98,13 @@ extension ViewController: MKMapViewDelegate{
     }
     //MARK: Api Function
     func doApiStuff(){
+        self.map.removeAnnotations(self.placesArray)
         //This function makes the requests to the google places api
         //This function addds the annotations the map.
         let center = CLLocationCoordinate2DMake(lat, lng)
         let region = MKCoordinateRegionMake(center, MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         let GOOGLE_API_KEY = "AIzaSyAzw_u47I2qXPZvMVN-1cKD-tHuEHSRm8g"
-        let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&radius=300&type=\(placeKey)&name=&key=\(GOOGLE_API_KEY)"
+        let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&radius=300&type=\(placeKey)&name=&key=\(GOOGLE_API_KEY)" //url to get data
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: baseURL)!)
         let task = session.dataTaskWithRequest(request){ (data, response, error) -> Void in
@@ -114,24 +115,28 @@ extension ViewController: MKMapViewDelegate{
             }
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                
                 if let items = json["results"] as? [[String: AnyObject]]{
+                    print(items)
+                    //goign through json results
                     var arrayOfParsingTools = [parseJson]()
+                    
                     for item in items{
                         let parsingTool = parseJson(dict: item)
                         arrayOfParsingTools.append(parsingTool)
                     }
                     
                     for parsedItem in arrayOfParsingTools{
-                        let newPlace = place(coordinate: parsedItem.locationCoords, name: parsedItem.name, vicinity: parsedItem.vicinity, placeID: parsedItem.placeID)
-                        self.placesArray.append(newPlace)
+                        let newPlace = place(coordinate: parsedItem.locationCoords, name: parsedItem.name, vicinity: parsedItem.vicinity, placeID: parsedItem.placeID) //initializing new place obaject
+                        self.placesArray.append(newPlace) // adding newPlace to the array
                     }
-                    self.map.addAnnotations(self.placesArray)
+                    self.map.addAnnotations(self.placesArray) //adding array of annotations
                     dispatch_async(dispatch_get_main_queue()){
-                        self.map.setRegion(region, animated: true)
+                        self.map.setRegion(region, animated: true) //
                     }
                 }
             }catch{
-                print("error with serializing JSON: \(error)")
+                print("error with serializing JSON: \(error)") // printing error
             }
         }
         task.resume()
